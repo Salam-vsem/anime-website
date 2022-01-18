@@ -1,12 +1,12 @@
 import {Route, Routes} from 'react-router-dom'
 import React from 'react'
 
-import Home from './Home'
+import {HomePage} from './home'
 
 const Routing: React.FC = () => {
   return (
     <Routes>
-      <Route index element={<Home />} />
+      <Route index element={<HomePage />} />
     </Routes>
   )
 }

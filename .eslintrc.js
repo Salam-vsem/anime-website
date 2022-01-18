@@ -1,18 +1,31 @@
 /** Разрешенные импорты (с публичными API) */
-const ALLOWED_PATH_GROUPS = ['shared', 'pages', 'features', 'models'].map((pattern) => ({
+const ALLOWED_PATH_GROUPS = [
+  'pages/**',
+  'widgets/**',
+  'features/**',
+  'entities/**',
+  'shared/**',
+].map((pattern) => ({
   pattern,
   group: 'internal',
   position: 'after',
 }))
-
 /** Для запрета приватных путей */
 const DENIED_PATH_GROUPS = [
+  // Private imports are prohibited, use public imports instead
+  'app/**',
+  'pages/*/**',
+  'widgets/*/**',
+  'features/*/**',
+  'entities/*/**',
+  'shared/*/*/**',
   // Prefer absolute imports instead of relatives (for root modules)
   '../**/app',
   '../**/pages',
+  '../**/widgets',
   '../**/features',
+  '../**/entities',
   '../**/shared',
-  '../**/models',
 ]
 
 module.exports = {
@@ -47,13 +60,14 @@ module.exports = {
     'import/order': [
       1,
       {
-        'pathGroups': ALLOWED_PATH_GROUPS,
-        'pathGroupsExcludedImportTypes': ['builtin'],
-        'groups': ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
-        'newlines-between': 'always',
+        pathGroups: ALLOWED_PATH_GROUPS,
+        pathGroupsExcludedImportTypes: ['builtin'],
+        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+        // !!!todo починить когда-то импорты
+        // 'newlines-between': 'always',
       },
     ],
-    'import/newline-after-import': ['error', {count: 1}],
+    'import/newline-after-import': [2, {count: 1}],
     'no-restricted-imports': [2, {patterns: DENIED_PATH_GROUPS}],
     // variables
     'prefer-const': 2,
@@ -61,7 +75,7 @@ module.exports = {
     // base
     'camelcase': [1, {ignoreDestructuring: true, ignoreImports: true, properties: 'never'}],
     'no-else-return': 2,
-    'max-len': [1, {code: 120}],
+    'max-len': [1, {code: 120, ignoreStrings: true}],
     'dot-notation': 2,
     'eol-last': 2,
     // prettier
