@@ -8,7 +8,6 @@ const ALLOWED_PATH_GROUPS = [
 ].map((pattern) => ({
   pattern,
   group: 'internal',
-  position: 'after',
 }))
 /** Для запрета приватных путей */
 const DENIED_PATH_GROUPS = [
@@ -60,11 +59,14 @@ module.exports = {
     'import/order': [
       1,
       {
-        pathGroups: ALLOWED_PATH_GROUPS,
-        pathGroupsExcludedImportTypes: ['builtin'],
-        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
-        // !!!todo починить когда-то импорты
-        // 'newlines-between': 'always',
+        'groups': ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+        'pathGroups': ALLOWED_PATH_GROUPS,
+        'pathGroupsExcludedImportTypes': ['built-in'],
+        'alphabetize': {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+        'newlines-between': 'always',
       },
     ],
     'import/newline-after-import': [2, {count: 1}],
