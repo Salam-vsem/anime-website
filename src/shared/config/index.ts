@@ -5,4 +5,5 @@ const getEnvVar = (key: string) => {
   return process.env[key] || ''
 }
 
-export const API_URL = getEnvVar('REACT_APP_API_URL')
+export const ANIME_API_URL = getEnvVar('REACT_APP_API_URL')
+export const IMAGE_API_URL = getEnvVar('REACT_APP_IMAGE_API_URL')

@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
 import React, {Suspense} from 'react'
 
-import {Spin} from '../../ui/spin'
+import {Spin} from '../ui/spin'
 
 export const withSuspenseLoader =
   <TProps = {}>(Component: React.ComponentType<TProps>) =>

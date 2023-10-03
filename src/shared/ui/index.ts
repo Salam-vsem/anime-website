@@ -1,1 +1,2 @@
-export {default as Spin} from './spin/Spin'
+export * from './spin'
+export * from './layout'

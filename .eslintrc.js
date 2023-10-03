@@ -1,5 +1,6 @@
 /** Разрешенные импорты (с публичными API) */
 const ALLOWED_PATH_GROUPS = [
+  'pages',
   'pages/**',
   'widgets/**',
   'features/**',
@@ -61,7 +62,7 @@ module.exports = {
       {
         'groups': ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
         'pathGroups': ALLOWED_PATH_GROUPS,
-        'pathGroupsExcludedImportTypes': ['built-in'],
+        'pathGroupsExcludedImportTypes': ['react'],
         'alphabetize': {
           order: 'asc',
           caseInsensitive: true,
@@ -69,15 +70,15 @@ module.exports = {
         'newlines-between': 'always',
       },
     ],
-    'import/newline-after-import': [2, {count: 1}],
-    'no-restricted-imports': [2, {patterns: DENIED_PATH_GROUPS}],
+    'import/newline-after-import': [2, { count: 1 }],
+    'no-restricted-imports': [2, { patterns: DENIED_PATH_GROUPS }],
     // variables
     'prefer-const': 2,
     'no-var': 2,
     // base
-    'camelcase': [1, {ignoreDestructuring: true, ignoreImports: true, properties: 'never'}],
+    'camelcase': [1, { ignoreDestructuring: true, ignoreImports: true, properties: 'never' }],
     'no-else-return': 2,
-    'max-len': [1, {code: 120, ignoreStrings: true}],
+    'max-len': [1, { code: 120, ignoreStrings: true }],
     'dot-notation': 2,
     'eol-last': 2,
     // prettier
@@ -96,7 +97,6 @@ module.exports = {
     'no-eq-null': 2,
     // function
     'max-params': [1, 2],
-    'max-lines-per-function': [1, 48],
     'arrow-parens': [2, 'always'],
   },
 }

@@ -1,2 +1,2 @@
-export {default as animeApi} from './anime'
-export * from './types'
+export * from './jikan'
+export * from './image-parser'
